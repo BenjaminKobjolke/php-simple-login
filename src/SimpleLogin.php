@@ -10,10 +10,11 @@ class SimpleLogin
     /**
      * Guard method - require authentication to continue
      * Shows login page if not authenticated, otherwise continues execution
+     *
+     * Requires SIMPLE_LOGIN_PASSWORD constant to be defined before calling.
      */
     public static function requireAuth(): void
     {
-        self::loadConfig();
         Session::start();
 
         // Handle logout request
@@ -46,7 +47,6 @@ class SimpleLogin
      */
     public static function isAuthenticated(): bool
     {
-        self::loadConfig();
         return Session::isAuthenticated();
     }
 
@@ -56,26 +56,6 @@ class SimpleLogin
     public static function logout(): void
     {
         Session::logout();
-    }
-
-    /**
-     * Load configuration file if it exists
-     */
-    private static function loadConfig(): void
-    {
-        // Look for config in common locations
-        $configPaths = [
-            $_SERVER['DOCUMENT_ROOT'] . '/simple-login-config.php',
-            dirname($_SERVER['SCRIPT_FILENAME']) . '/simple-login-config.php',
-            getcwd() . '/simple-login-config.php',
-        ];
-
-        foreach ($configPaths as $path) {
-            if (file_exists($path)) {
-                require_once $path;
-                return;
-            }
-        }
     }
 
     /**

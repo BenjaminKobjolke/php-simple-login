@@ -12,10 +12,12 @@ composer require benjaminkobjolke/php-simple-login
 
 ### Local Development
 
-Add a path repository to your `composer.json`:
+Add a path repository to your `composer.json`. You must also set `minimum-stability` to `dev` since the package uses dev-main:
 
 ```json
 {
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "repositories": [
         {
             "type": "path",
@@ -32,12 +34,13 @@ Then run `composer update`.
 
 ## Configuration
 
-1. Copy `config.example.php` to your project root as `simple-login-config.php`
-2. Set your password:
+Define the required constants in your project's config file **before** calling `requireAuth()`:
 
 ```php
 <?php
-// simple-login-config.php
+// In your config.php or at the top of your script
+
+// Required: Login password
 define('SIMPLE_LOGIN_PASSWORD', 'your-secure-password');
 
 // Optional: redirect after login (default: same page)
@@ -56,6 +59,7 @@ Add this at the top of any PHP file you want to protect:
 ```php
 <?php
 require_once 'vendor/autoload.php';
+require_once 'config.php'; // Your config with SIMPLE_LOGIN_PASSWORD
 
 use BenjaminKobjolke\SimpleLogin\SimpleLogin;
 
