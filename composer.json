@@ -1,0 +1,19 @@
+{
+    "name": "benjaminkobjolke/php-simple-login",
+    "description": "Simple password-only login screen for PHP projects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Kobjolke"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BenjaminKobjolke\\SimpleLogin\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    }
+}
