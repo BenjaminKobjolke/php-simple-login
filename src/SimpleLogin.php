@@ -69,7 +69,7 @@ class SimpleLogin
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="<?= defined('SIMPLE_LOGIN_THEME_COLOR') ? htmlspecialchars(SIMPLE_LOGIN_THEME_COLOR) : '#121212' ?>">
     <title>Login</title>
     <style>
         * {
@@ -179,6 +179,9 @@ class SimpleLogin
             transform: scale(0.98);
         }
     </style>
+    <?php if (defined('SIMPLE_LOGIN_CSS_URL')): ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars(SIMPLE_LOGIN_CSS_URL) ?>">
+    <?php endif; ?>
 </head>
 <body>
     <div class="login-overlay">

@@ -48,6 +48,15 @@ define('SIMPLE_LOGIN_REDIRECT', '/dashboard.php');
 
 // Optional: session lifetime in seconds (default: 1 year)
 define('SIMPLE_LOGIN_SESSION_LIFETIME', 31536000);
+
+// Optional: extra stylesheet loaded after the built-in login styles.
+// Override the login page's :root CSS variables (--bg-primary, --bg-secondary,
+// --bg-card, --bg-card-hover, --text-primary, --text-secondary,
+// --accent-primary, --border-color, --shadow-lg) to theme it.
+define('SIMPLE_LOGIN_CSS_URL', 'themes/my-theme.css');
+
+// Optional: <meta name="theme-color"> of the login page (default: #121212)
+define('SIMPLE_LOGIN_THEME_COLOR', '#041a3d');
 ```
 
 ## Usage
