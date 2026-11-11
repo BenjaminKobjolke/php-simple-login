@@ -2,3 +2,4 @@
 /composer.lock
 .claude/
 /PLAN_*.md
+/.phpunit.cache/
